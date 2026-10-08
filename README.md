@@ -1,6 +1,6 @@
-# Widget Task Manager
+# Widget Task Manager with Document360 JWT auth
 
-A lightweight, browser-based task manager built with plain HTML, CSS, and JavaScript.
+A lightweight task manager with a Document360 knowledge base widget that authenticates through a backend `/authenticate` endpoint.
 
 ## Features
 
@@ -10,25 +10,52 @@ A lightweight, browser-based task manager built with plain HTML, CSS, and JavaSc
 - Filter by all, active, and completed tasks
 - Delete individual tasks
 - Clear all completed tasks
-- Data persists in the browser using localStorage
+- Browser persistence via localStorage
+- Document360 JWT token generation through a backend endpoint
 
-## Run locally
+## Setup
 
-Open `index.html` directly in a browser, or serve the folder with a simple local web server:
+1. Create a local `.env` file from `.env.example`.
+2. Add your Document360 client details.
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the backend:
+
+```bash
+npm start
+```
+
+5. Start the frontend app:
 
 ```bash
 cd "C:\Users\​AshiyaParveen\Documents\WidgetTest"
-python -m http.server 8000
+py -m http.server 8000
 ```
 
-Then visit:
+6. Open the app at:
 
 ```text
 http://localhost:8000
 ```
 
-## Files
+The help icon triggers the Document360 widget, and the widget calls the backend endpoint at `http://localhost:3000/authenticate` to fetch a JWT-backed access token.
 
-- `index.html` – app structure
-- `styles.css` – styling
-- `script.js` – task logic and persistence
+## Backend endpoint
+
+The backend exposes:
+
+- `GET /authenticate`
+- `POST /authenticate`
+
+Response example:
+
+```json
+{
+  "accessToken": "...",
+  "expiresIn": 900
+}
+```

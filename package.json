@@ -1,0 +1,22 @@
+{
+  "name": "widget-task-manager-auth",
+  "version": "1.0.0",
+  "description": "Document360 JWT auth backend for the task manager widget",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "document360",
+    "jwt",
+    "widget",
+    "auth"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}
