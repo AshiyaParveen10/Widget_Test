@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widget Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Productivity hub</p>
+          <h1>Widget Task Manager</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="status-pill" id="task-count">0 tasks</div>
+          <button type="button" class="icon-btn help-btn" aria-label="Help">?</button>
+          <button type="button" class="icon-btn profile-btn" aria-label="Profile">
+            <span>AW</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="card">
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">Task title</label>
+          <input
+            id="task-input"
+            type="text"
+            maxlength="120"
+            placeholder="Add a new task..."
+            aria-label="New task"
+            required
+          />
+
+          <label class="sr-only" for="task-priority">Task priority</label>
+          <select id="task-priority" aria-label="Task priority">
+            <option value="low">Low priority</option>
+            <option value="medium" selected>Medium priority</option>
+            <option value="high">High priority</option>
+          </select>
+
+          <button type="submit" class="primary-btn">Add Task</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" aria-label="Task filters">
+            <button class="filter-btn active" data-filter="all" type="button">All</button>
+            <button class="filter-btn" data-filter="active" type="button">Active</button>
+            <button class="filter-btn" data-filter="completed" type="button">Completed</button>
+          </div>
+
+          <button id="clear-completed" class="secondary-btn" type="button">
+            Clear completed
+          </button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </main>
+    </div>
+
+    <template id="task-item-template">
+      <li class="task-item">
+        <label class="task-check">
+          <input type="checkbox" class="task-toggle" />
+          <span class="checkmark"></span>
+        </label>
+        <div class="task-content">
+          <span class="task-text"></span>
+          <span class="task-meta">
+            <span class="priority-badge"></span>
+            <span class="task-date"></span>
+          </span>
+        </div>
+        <button class="delete-btn" type="button" aria-label="Delete task">Delete</button>
+      </li>
+    </template>
+
+    <!-- Document360 knowledge base widget start -->
+    <script>
+        (function (w,d,s,o,f,js,fjs) {
+            w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+        }(window, document, 'script', 'mw', 'https://cdn.document360.io/static/js/widget.js'));
+        mw('init', { apiKey: 'VoH+HSs3aXEbsop8y78gLwZuCw3/h9PblKxEUqP13lXOoDUaiEGgnBcx6zp5edS/N89mevgLokM7FRw/0t+R9SvpuXuWMnhI+SNGsg6sj9LGNedHmhmUX825n3UOqFytaRG6diOosCpSV963g+/tlDyH5DAICGU5aZLQ5yJa9CY=' });
+    </script>
+    <!-- Document360 knowledge base widget end -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
